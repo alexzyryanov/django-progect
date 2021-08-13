@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    Actors
+{% endblock %}
+
+{% block content %}
+<div class="container-block">
+    {% for actor in actors %}
+    <div class="container">
+        <div class="photo-place">
+            <img class="photo-actor" src="{{ actor.image_actor.url }}" alt="">
+        </div>
+        <div class="name-place">
+            <a href="{% url 'video' pk=actor.id %}">{{ actor.name_actor }}</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

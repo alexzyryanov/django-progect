@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: blueviolet;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.container-block {
+    width: 850px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.container {
+    background-color: silver;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    min-width: 150px;
+    width: 150px;
+    min-height: 150px;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 4%), 0 4px 10px 0 rgb(13 35 67 / 25%);
+}
+
+.container:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.photo-place {
+    width: 100%;
+    height: 85%;
+}
+
+.photo-actor {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.name-place {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+}
+
+.container-about {
+    background-color: silver;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.container-about-photo {
+    height: 100%;
+    border-radius: 10px;
+}
+
+.container-about-info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container-data {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 260px;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 4%), 0 4px 10px 0 rgb(13 35 67 / 25%);
+}
+
+.pagination {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: silver;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.paginator-font {
+    font-size: 30px;
+    margin: 10px;
+}
