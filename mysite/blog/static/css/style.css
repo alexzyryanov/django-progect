@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*---index---*/
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1020px;
+}
+
+.content-item {
+    background-color: silver;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 320px;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 4%), 0 4px 10px 0 rgb(13 35 67 / 25%);
+}
+
+.content-item:hover {
+    box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+}
+
+.content-item-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.content-item-info > a {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+}
+
+.content-item-info > a:hover {
+    color: blueviolet;
+}
+
+.content-item-media {
+    height: 80%;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.content-item-media > img {
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.pagination {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: silver;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+}
+
+.paginator-font {
+    font-size: 30px;
+    margin: 10px;
+}
+
+
+/*---actor---*/
+
+.actor-item {
+    background-color: silver;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 150px;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 4%), 0 4px 10px 0 rgb(13 35 67 / 25%);
+}
+
+.actor-item:hover {
+    box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+}
+
+.actor-item-media {
+    height: 85%;
+    border-radius: 10px;
+}
+
+.actor-item-media > img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.actor-item-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    border-radius: 10px;
+}
+
+.actor-item-info > a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+.actor-item-info > a:hover {
+    color: blueviolet;
+}
+
+
+/*---video---*/
+
+.container-about {
+    background-color: silver;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    width: 1020px;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 4%), 0 4px 10px 0 rgb(13 35 67 / 25%);
+}
+
+.container-about-media {
+    height: 100%;
+    width: 25%;
+}
+
+.container-about-media > img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.container-about-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 75%;
+}
+
+.container-about-info > h1 {
+    font-size: 50px;
+}
+
+.container-about-info > p {
+    font-size: 25px;
+    margin: 20px;
+}
+
+
+/*---header---*/
+
+header {
+    background-color: silver;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 1020px;
+    height: 50px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.account {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nav-button > a {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+}
+
+.nav-button > a:hover {
+    color: blueviolet;
+}
+
+
+/*---register---*/
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.field > input {
+    height: 50px;
+    width: 500px;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+button {
+    align-items: center;
+    height: 30px;
+    width: 100px;
+}

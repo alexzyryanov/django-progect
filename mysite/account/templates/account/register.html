@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {% for field in user_form %}
+    <div class="field">
+        {{ field.label_tag }}
+        {{ field }}
+    </div>
+    {% endfor %}
+    <button type="submit">Create Account</button>
+</form>
+{% endblock %}

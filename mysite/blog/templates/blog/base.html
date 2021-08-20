@@ -6,9 +6,27 @@
     <title>
         {% block title %}{% endblock %}
     </title>
-    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <header>
+        <div class="top">
+            <div class="menu">
+                <div class="nav-button"><a href="{% url 'index' %}">Home</a></div>
+                <div class="nav-button"><a href="{% url 'actor' %}">Actors</a></div>
+            </div>
+
+            <div class="account">
+                {% if user.is_authenticated %}
+                <div class="nav-button"><a href="#">{{ request.user }}</a></div>
+                <div class="nav-button"><a href="#">Log Out</a></div>
+                {% else %}
+                <div class="nav-button"><a href="{% url 'register' %}">Sing Up</a></div>
+                <div class="nav-button"><a href="#">Log In</a></div>
+                {% endif %}
+            </div>
+        </div>
+    </header>
     {% block content %}{% endblock %}
 </body>
 </html>

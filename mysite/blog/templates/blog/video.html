@@ -7,49 +7,46 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-block">
     {% for actor in actors %}
     <div class="container-about">
-        <div class="container-about-photo">
-            <img class="container-about-photo" src="{{ actor.image_actor.url }}" alt="">
+        <div class="container-about-media">
+            <img src="{{ actor.image_actor.url }}" alt="">
         </div>
 
         <div class="container-about-info">
-            <div class="container-about-info-name">
-                <h1>{{ actor.name_actor }}</h1>
-                <p>{{ actor.about_actor }}</p>
+            <h1>{{ actor.name_actor }}</h1>
+            <p>{{ actor.about_actor }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="content">
+        {% for content in page_obj %}
+        <div class="content-item">
+            <div class="content-item-info">
+                <a href="{{ content.video }}" target="_blank">{{ content.created_date }}</a>
+            </div>
+
+            <div class="content-item-media">
+                <img src="{{ content.image }}" alt="">
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-
-    {% for content in page_obj %}
-    <div class="container-data">
-        <div class="name-place">
-            <a href="{{ content.video }}" target="_blank">{{ content.created_date }}</a>
-        </div>
-        <div class="photo-place">
-            <img class="photo-actor" src="{{ content.image }}" alt="">
-        </div>
-    </div>
-    {% endfor %}
-</div>
 
 <div class="pagination">
-    <span>
-        {% if page_obj.has_previous %}
-            <a class="paginator-font" href="?page=1">&laquo;</a>
-            <a class="paginator-font" href="?page={{ page_obj.previous_page_number }}">‹</a>
-        {% endif %}
+    {% if page_obj.has_previous %}
+    <a class="paginator-font" href="?page=1">&laquo;</a>
+    <a class="paginator-font" href="?page={{ page_obj.previous_page_number }}">‹</a>
+    {% endif %}
 
-        <span class="paginator-font">
-            {{ page_obj.number }} - {{ page_obj.paginator.num_pages }}
-        </span>
-
-        {% if page_obj.has_next %}
-            <a class="paginator-font" href="?page={{ page_obj.next_page_number }}">›</a>
-            <a class="paginator-font" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
-        {% endif %}
+    <span class="paginator-font">
+        {{ page_obj.number }} - {{ page_obj.paginator.num_pages }}
     </span>
+
+    {% if page_obj.has_next %}
+    <a class="paginator-font" href="?page={{ page_obj.next_page_number }}">›</a>
+    <a class="paginator-font" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+    {% endif %}
 </div>
 {% endblock %}
