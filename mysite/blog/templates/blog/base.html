@@ -19,10 +19,10 @@
             <div class="account">
                 {% if user.is_authenticated %}
                 <div class="nav-button"><a href="#">{{ request.user }}</a></div>
-                <div class="nav-button"><a href="#">Log Out</a></div>
+                <div class="nav-button"><a href="{% url 'logout' %}">Log Out</a></div>
                 {% else %}
                 <div class="nav-button"><a href="{% url 'register' %}">Sing Up</a></div>
-                <div class="nav-button"><a href="#">Log In</a></div>
+                <div class="nav-button"><a href="{% url 'login' %}">Log In</a></div>
                 {% endif %}
             </div>
         </div>

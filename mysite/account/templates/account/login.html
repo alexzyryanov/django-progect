@@ -1,18 +1,18 @@
 {% extends "blog/base.html" %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
 <div class="aunth-container">
     <form method="POST">
         {% csrf_token %}
-        {% for field in user_form %}
+        {% for field in form %}
         <div class="field">
             {{ field.label_tag }}
             {{ field }}
         </div>
         {% endfor %}
-        <button type="submit">Create Account</button>
+        <button type="submit">Login</button>
     </form>
 </div>
 {% endblock %}
