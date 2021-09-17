@@ -6,5 +6,4 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('actors/', views.actor, name='actor'),
     path('actors/video/<int:pk>/', views.video, name='video'),
-    path('content/new/', views.content_new, name='content_new'),
 ]

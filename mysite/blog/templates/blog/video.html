@@ -34,6 +34,7 @@
         {% endfor %}
     </div>
 
+{% if page_obj.has_previous or page_obj.has_next %}
 <div class="pagination">
     {% if page_obj.has_previous %}
     <a class="paginator-font" href="?page=1">&laquo;</a>
@@ -49,4 +50,5 @@
     <a class="paginator-font" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
     {% endif %}
 </div>
+{% endif %}
 {% endblock %}
