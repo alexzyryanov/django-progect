@@ -11,25 +11,27 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <header>
-        <div class="top">
-            <div class="menu">
-                <div class="nav-button"><a href="{% url 'index' %}">Home</a></div>
-                <div class="nav-button"><a href="{% url 'actor' %}">Actors</a></div>
-            </div>
+    <div class="wrapper">
+        <header>
+            <div class="top">
+                <div class="menu">
+                    <div class="nav-button"><a href="{% url 'index' %}">Home</a></div>
+                    <div class="nav-button"><a href="{% url 'actor' %}">Actors</a></div>
+                </div>
 
-            <div class="account">
-                {% if user.is_authenticated %}
-                <div class="nav-button"><a href="#">{{ request.user }}</a></div>
-                <div class="nav-button"><a href="{% url 'logout' %}">Log Out</a></div>
-                {% else %}
-                <div class="nav-button"><a href="{% url 'register' %}">Sing Up</a></div>
-                <div class="nav-button"><a href="{% url 'login' %}">Log In</a></div>
-                {% endif %}
+                <div class="account">
+                    {% if user.is_authenticated %}
+                    <div class="nav-button"><a href="#">{{ request.user }}</a></div>
+                    <div class="nav-button"><a href="{% url 'logout' %}">Log Out</a></div>
+                    {% else %}
+                    <div class="nav-button"><a href="{% url 'register' %}">Sing Up</a></div>
+                    <div class="nav-button"><a href="{% url 'login' %}">Log In</a></div>
+                    {% endif %}
+                </div>
             </div>
-        </div>
-    </header>
-    {% block content %}{% endblock %}
+        </header>
+        {% block content %}{% endblock %}
+    </div>
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

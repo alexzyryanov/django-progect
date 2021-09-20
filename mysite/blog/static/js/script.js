@@ -1,22 +1,22 @@
 function getCookie(name) {
-    let cookieValue = null
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';')
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim()
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1))
-                break
-            }
-        }
+  let cookieValue = null
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';')
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim()
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1))
+        break
+      }
     }
-    return cookieValue
+  }
+  return cookieValue
 }
 const csrftoken = getCookie('csrftoken')
 
 
 async function postData(url, data) {
-  const response = await fetch(url, {
+  let response = await fetch(url, {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',
@@ -26,16 +26,12 @@ async function postData(url, data) {
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(data)
   })
-  return await response.json()
-}
 
-
-let paginator = 2
-button.onclick = function showNext () {
-  postData('http://127.0.0.1:8000/api/', {page: paginator}).then((data) => {for (i in data) {
-    let image = data[i]['fields']['image']
-    let video = data[i]['fields']['video']
-    let date = data[i]['fields']['created_date']
+  let answer = await response.json()
+  for (i in answer) {
+    let image = answer[i]['fields']['image']
+    let video = answer[i]['fields']['video']
+    let date = answer[i]['fields']['created_date']
 
 
     let div = document.createElement('div')
@@ -60,7 +56,13 @@ button.onclick = function showNext () {
     div2.append(img)
 
     document.querySelector(".content").append(div)
-  }})
+  }
+}
+
+
+let paginator = 2
+button.onclick = function () {
+  postData('http://127.0.0.1:8000/api/', {page: paginator})
   paginator += 1
 }
 
