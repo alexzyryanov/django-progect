@@ -19,23 +19,7 @@
     {% endfor %}
 </div>
 
-<button id="button">NEXT</button>
-
 {% if page_obj.has_previous or page_obj.has_next %}
-<div class="pagination">
-    {% if page_obj.has_previous %}
-    <a class="paginator-font" href="?page=1">&laquo;</a>
-    <a class="paginator-font" href="?page={{ page_obj.previous_page_number }}">‹</a>
-    {% endif %}
-
-    <span class="paginator-font">
-        {{ page_obj.number }} - {{ page_obj.paginator.num_pages }}
-    </span>
-
-    {% if page_obj.has_next %}
-    <a class="paginator-font" href="?page={{ page_obj.next_page_number }}">›</a>
-    <a class="paginator-font" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
-    {% endif %}
-</div>
+<button id="but">NEXT</button>
 {% endif %}
 {% endblock %}

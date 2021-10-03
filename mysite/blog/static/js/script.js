@@ -1,37 +1,11 @@
-function getCookie(name) {
-  let cookieValue = null
-  if (document.cookie && document.cookie !== '') {
-    const cookies = document.cookie.split(';')
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i].trim()
-      if (cookie.substring(0, name.length + 1) === (name + '=')) {
-        cookieValue = decodeURIComponent(cookie.substring(name.length + 1))
-        break
-      }
-    }
-  }
-  return cookieValue
-}
-const csrftoken = getCookie('csrftoken')
-
-
-async function postData(url, data) {
-  let response = await fetch(url, {
-    method: 'POST',
-    mode: 'cors',
-    cache: 'no-cache',
-    credentials: 'same-origin',
-    headers: {'X-CSRFToken': csrftoken, 'Content-Type': 'application/json'},
-    redirect: 'follow',
-    referrerPolicy: 'no-referrer',
-    body: JSON.stringify(data)
-  })
+async function postData(url) {
+  let response = await fetch(url)
 
   let answer = await response.json()
   for (i in answer) {
     let image = answer[i]['fields']['image']
     let video = answer[i]['fields']['video']
-    let date = answer[i]['fields']['created_date']
+    let date = new Date(answer[i]['fields']['created_date'])
 
 
     let div = document.createElement('div')
@@ -44,7 +18,12 @@ async function postData(url, data) {
     let a = document.createElement('a')
     a.href = video
     a.target = "_blank"
-    a.innerHTML = date
+    a.innerHTML = date.toLocaleString("default", {
+      day: "numeric", 
+      month: "long", 
+      year: "numeric", 
+      hour: "numeric",
+      minute: "numeric"}).replace(',' ,'')
     div1.append(a)
 
     let div2 = document.createElement('div')
@@ -61,8 +40,7 @@ async function postData(url, data) {
 
 
 let paginator = 2
-button.onclick = function () {
-  postData('http://127.0.0.1:8000/api/', {page: paginator})
+but.onclick = function () {
+  postData(`http://127.0.0.1:8000/api/?page=${paginator}`)
   paginator += 1
 }
-
