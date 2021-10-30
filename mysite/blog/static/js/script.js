@@ -5,42 +5,44 @@ async function postData(url) {
   for (i in answer) {
     let image = answer[i]['fields']['image']
     let video = answer[i]['fields']['video']
-    let date = new Date(answer[i]['fields']['created_date'])
-
-
-    let div = document.createElement('div')
-    div.className = "content-item"
-
-    let div1 = document.createElement('div')
-    div1.className = "content-item-info"
-    div.append(div1)
-
-    let a = document.createElement('a')
-    a.href = video
-    a.target = "_blank"
-    a.innerHTML = date.toLocaleString("default", {
+    let date = new Date(answer[i]['fields']['created_date']).toLocaleString("default", {
       day: "numeric", 
       month: "long", 
       year: "numeric", 
       hour: "numeric",
-      minute: "numeric"}).replace(',' ,'')
-    div1.append(a)
+      minute: "numeric"
+    }).replace(',' ,'')
 
-    let div2 = document.createElement('div')
-    div2.className = "content-item-media"
-    div.append(div2)
 
-    let img = document.createElement('img')
-    img.src = image
-    div2.append(img)
+    let div = document.createElement('div')
+    div.className = "content-item"
+    div.innerHTML = `
+    <div class="content-item-info">
+      <a href="${video}" target="_blank">${date}</a>
+    </div>
+    <div class="content-item-media">
+      <img src="${image}" alt="">
+    </div>`
+
 
     document.querySelector(".content").append(div)
+    flag = true
   }
 }
 
 
+let flag = true
 let paginator = 2
-but.onclick = function () {
-  postData(`http://127.0.0.1:8000/api/?page=${paginator}`)
-  paginator += 1
-}
+
+
+window.addEventListener('scroll', () => {
+  let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom
+
+  if (windowRelativeBottom < scrollY) {
+    if (flag === true) {
+      flag = false
+      postData(`/api/?page=${paginator}`)
+      paginator += 1
+    }
+  }
+})

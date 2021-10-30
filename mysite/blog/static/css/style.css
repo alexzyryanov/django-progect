@@ -123,15 +123,6 @@ header {
     color: black;
 }
 
-#but {
-    background-color: silver;
-    margin: 20px auto 20px auto;
-    height: 50px;
-    width: 200px;
-    border-radius: 10px;
-    box-shadow: 0 0 6px 0 rgb(0 0 0 / 4%), 0 4px 10px 0 rgb(13 35 67 / 25%);
-}
-
 
 /*---actor---*/
 
@@ -260,6 +251,8 @@ button {
 
 
 @media screen and (max-width: 680px) {
+
+    /*---index---*/
 
     .content {
         justify-content: center;

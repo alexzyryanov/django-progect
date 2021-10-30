@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load static %}
 
 {% block title %}
     My site
@@ -18,8 +19,5 @@
     </div>
     {% endfor %}
 </div>
-
-{% if page_obj.has_previous or page_obj.has_next %}
-<button id="but">NEXT</button>
-{% endif %}
+<script src="{% static 'js/script.js' %}"></script>
 {% endblock %}
