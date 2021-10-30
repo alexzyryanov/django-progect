@@ -9,7 +9,9 @@
     {% for actor in actors %}
     <div class="actor-item">
         <div class="actor-item-media">
-            <img src="{{ actor.image_actor.url }}" alt="">
+            <a href="{% url 'video' pk=actor.id %}">
+                <img src="{{ actor.image_actor.url }}" alt="">
+            </a>
         </div>
         
         <div class="actor-item-info">

@@ -10,11 +10,13 @@
     {% for content in page_obj %}
     <div class="content-item">
         <div class="content-item-info">
-            <a href="{{ content.video }}" target="_blank">{{ content.created_date }}</a>
+            <a href="{{ content.video }}" target="_blank">{{ content.name }}</a>
         </div>
 
         <div class="content-item-media">
-            <img src="{{ content.image }}" alt="">
+            <a href="{{ content.video }}" target="_blank">
+                <img src="{{ content.image }}" alt="">
+            </a>
         </div>
     </div>
     {% endfor %}

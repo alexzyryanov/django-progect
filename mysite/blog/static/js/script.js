@@ -3,25 +3,28 @@ async function postData(url) {
 
   let answer = await response.json()
   for (i in answer) {
+    let name = answer[i]['fields']['name']
     let image = answer[i]['fields']['image']
     let video = answer[i]['fields']['video']
-    let date = new Date(answer[i]['fields']['created_date']).toLocaleString("default", {
-      day: "numeric", 
-      month: "long", 
-      year: "numeric", 
-      hour: "numeric",
-      minute: "numeric"
-    }).replace(',' ,'')
+    // let date = new Date(answer[i]['fields']['created_date']).toLocaleString("default", {
+    //   day: "numeric", 
+    //   month: "long", 
+    //   year: "numeric", 
+    //   hour: "numeric",
+    //   minute: "numeric"
+    // }).replace(',' ,'')
 
 
     let div = document.createElement('div')
     div.className = "content-item"
     div.innerHTML = `
     <div class="content-item-info">
-      <a href="${video}" target="_blank">${date}</a>
+      <a href="${video}" target="_blank">${name}</a>
     </div>
     <div class="content-item-media">
-      <img src="${image}" alt="">
+      <a href="${video}" target="_blank">
+        <img src="${image}" alt="">
+      </a>
     </div>`
 
 
