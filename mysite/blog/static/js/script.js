@@ -36,9 +36,7 @@ let paginator = 2
 
 
 document.addEventListener('scroll', () => {
-  let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom
-
-  if (windowRelativeBottom < scrollY + window.innerHeight) {
+  if (scrollY === document.body.offsetHeight - document.body.clientHeight) {
     if (flag === true) {
       flag = false
       postData(`/api/?page=${paginator}`)
